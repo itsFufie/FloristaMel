@@ -1,0 +1,12 @@
+[package]
+name = "ragnarok-bot"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+dotenv = "0.15.0"
+reqwest = { version = "0.12.22", features = ["blocking", "json"] }
+scraper = "0.23.1"
+serenity = { version = "0.12", features = ["collector"] }
+tokio = { version = "1.21.2", features = ["macros", "rt-multi-thread"] }
+serde = { version = "1.0.219", features = ["derive"] }
