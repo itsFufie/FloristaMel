@@ -91,10 +91,10 @@ pub async fn mob_info(ctx: &Context, msg: &Message, mob_name: &str) {
 fn create_buttons() -> (CreateButton, CreateButton) {
     (
         CreateButton::new("previous")
-            .emoji(ReactionType::Unicode("👈".to_string()))
+            .emoji(ReactionType::Unicode("◀️".to_string()))
             .style(ButtonStyle::Secondary),
         CreateButton::new("next")
-            .emoji(ReactionType::Unicode("👉".to_string()))
+            .emoji(ReactionType::Unicode("▶️".to_string()))
             .style(ButtonStyle::Secondary),
     )
 }

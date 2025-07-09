@@ -9,7 +9,6 @@ pub async fn get_drops_embed(drops: Vec<MobDrop>, mob_name: &str, id: u32) -> Cr
     let footer = CreateEmbedFooter::new(format!("id: {}", id));
     let embed = CreateEmbed::new()
         .title(format!("{} - Drops", mob_name))
-        .description("**item** \nchance")
         .thumbnail(get_sprite_url(id).await)
         .footer(footer);
     let mut fields = Vec::new();
