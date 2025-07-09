@@ -98,22 +98,3 @@ fn create_buttons() -> (CreateButton, CreateButton) {
             .style(ButtonStyle::Secondary),
     )
 }
-
-pub async fn mob_drops(ctx: &Context, msg: &Message, mob_name: &str) {
-    let mobs = search_mob_by_name(mob_name).await;
-    if mobs.total < 1 {
-        let _res = msg
-            .channel_id
-            .say(&ctx.http, "Monstro não encontrado!")
-            .await;
-        return;
-    }
-    let mob = get_mob_data(mobs.items.first().unwrap().id.to_string()).await;
-    let embed = get_drops_embed(mob.drops, &mob.data.name, mob.data.id).await;
-    let builder = CreateMessage::new().embed(embed);
-    let msg = msg.channel_id.send_message(&ctx.http, builder).await;
-
-    if let Err(why) = msg {
-        println!("Error sending message: {why:?}");
-    }
-}

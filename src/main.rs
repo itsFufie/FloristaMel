@@ -6,7 +6,7 @@ use serenity::async_trait;
 use serenity::model::channel::Message;
 use serenity::prelude::*;
 
-use crate::commands::mobs::{mob_drops, mob_info};
+use crate::commands::mobs::mob_info;
 
 mod api;
 mod commands;
@@ -43,10 +43,6 @@ struct Handler;
 #[async_trait]
 impl EventHandler for Handler {
     async fn message(&self, ctx: Context, msg: Message) {
-        if msg.content.starts_with("!mobDrops") {
-            let (_command, mob_name) = msg.content.split_at(9);
-            mob_drops(&ctx, &msg, mob_name.trim()).await;
-        }
         if msg.content.starts_with("!mob") {
             let (_command, mob_name) = msg.content.split_at(4);
             mob_info(&ctx, &msg, mob_name.trim()).await;

@@ -38,16 +38,16 @@ pub struct Mob {
 #[derive(Deserialize, Serialize, Debug)]
 #[serde(rename_all = "snake_case")]
 pub struct MobData {
-    pub id: String,
-    pub name: String,
-    pub level: u32,
-    pub element: String,
-    pub elementLevel: u8,
-    pub size: String,
-    pub race: String,
-    pub hp: u32,
-    pub baseExp: u32,
-    pub jobExp: u32,
+    pub id: Option<String>,
+    pub name: Option<String>,
+    pub level: Option<u32>,
+    pub element: Option<String>,
+    pub elementLevel: Option<u8>,
+    pub size: Option<String>,
+    pub race: Option<String>,
+    pub hp: Option<u32>,
+    pub baseExp: Option<u32>,
+    pub jobExp: Option<u32>,
 }
 
 #[derive(Deserialize, Serialize)]
